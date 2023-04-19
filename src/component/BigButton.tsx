@@ -1,0 +1,31 @@
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+
+const BigButton = props => {
+  return (
+    <TouchableOpacity onPress={props.onPress}>
+      <View style={{...styles.button, ...props.style}}>
+        <Text style={{...styles.buttonText, ...props.textStyling}}>
+          {props.children}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#006699',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25,
+  },
+  buttonText: {
+    padding: 4,
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 18,
+  },
+});
+
+export default BigButton;
