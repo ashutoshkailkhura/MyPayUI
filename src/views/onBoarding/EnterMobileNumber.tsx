@@ -1,5 +1,4 @@
 import {
-  Button,
   Image,
   SafeAreaView,
   StyleSheet,
@@ -10,9 +9,21 @@ import {
 import React from 'react';
 import TopAppBar from './TopAppBar';
 import BigButton from '../../component/BigButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function EnterMobileNumber({navigation}) {
   const [number, onChangeNumber] = React.useState('');
+
+  function savePrefAndNavigate() {
+    const storeData = async value => {
+      try {
+        await AsyncStorage.setItem('@onBoardingStatus_Key', 'false');
+      } catch (e) {
+        // saving error
+      }
+    };
+    navigation.navigate('ScreenLoading');
+  }
 
   return (
     <SafeAreaView>
@@ -33,7 +44,7 @@ export default function EnterMobileNumber({navigation}) {
         />
 
         <BigButton
-          onPress={() => navigation.navigate('ScreenLoading')}
+          onPress={() => savePrefAndNavigate()}
           children={'Click Me'}
         />
       </View>

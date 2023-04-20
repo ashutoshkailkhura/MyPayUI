@@ -4,9 +4,13 @@ import React from 'react';
 export default function Loading() {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Loading ...</Text>
+      <Text style={styles.loadingStyle}>Loading...</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  loadingStyle: {
+    fontSize: 32,
+  },
+});
