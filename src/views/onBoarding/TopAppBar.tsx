@@ -1,20 +1,26 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function TopAppBar() {
+export default function TopAppBar({navigation}) {
   return (
     <View style={styles.container}>
-      <View style={styles.box}>
-        <Image
-          source={require('../../../assets/ic_language.png')}
-          style={styles.dropDownLogo}
-        />
-        <Text>English</Text>
-        <Image
-          source={require('../../../assets/drop_down.png')}
-          style={styles.dropDownLogo}
-        />
-      </View>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('ScreenSelectLanguage')}>
+        <View style={styles.box}>
+          <Image
+            source={require('../../../assets/ic_language.png')}
+            style={styles.dropDownLogo}
+          />
+          <Text>English</Text>
+          <Image
+            source={require('../../../assets/drop_down.png')}
+            style={styles.dropDownLogo}
+          />
+        </View>
+      </TouchableOpacity>
+
       <View style={styles.box}>
         <Image
           source={require('../../../assets/img_india.png')}

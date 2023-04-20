@@ -11,15 +11,15 @@ import React from 'react';
 import TopAppBar from './TopAppBar';
 import BigButton from '../../component/BigButton';
 
-export default function EnterMobileNumber() {
+export default function EnterMobileNumber({navigation}) {
   const [number, onChangeNumber] = React.useState('');
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <TopAppBar />
+        <TopAppBar navigation={navigation} />
         <Image
-          source={require('../../../assets/gpay.jpg')}
+          source={require('../../../assets/img_india.png')}
           style={styles.appLogo}
         />
         <Text style={styles.header}>Welcome To MyPayUI</Text>
@@ -33,7 +33,7 @@ export default function EnterMobileNumber() {
         />
 
         <BigButton
-          onPress={() => console.log('Ki Ki ')}
+          onPress={() => navigation.navigate('ScreenLoading')}
           children={'Click Me'}
         />
       </View>
