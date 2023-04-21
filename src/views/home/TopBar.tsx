@@ -21,7 +21,7 @@ export default function TopBar() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    margin: 4,
+    margin: 8,
     height: 50,
   },
   searchBar: {
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     borderWidth: 1,
+    marginHorizontal: 4,
     borderRadius: 22,
     padding: 2,
   },
@@ -42,11 +43,11 @@ const styles = StyleSheet.create({
   accountIcon: {
     width: 45,
     height: 45,
-    backgroundColor: 'yellow',
-    margin: 4,
+    backgroundColor: 'cyan',
+    marginHorizontal: 4,
     borderRadius: 45 / 2,
-    alignContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   accountText: {
     fontSize: 22,

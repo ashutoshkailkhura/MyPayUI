@@ -29,15 +29,26 @@ export default function HomeScreen({navigation}) {
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        <TopBar />
-        <HeaderAnimation />
-        <SectionQuickAction />
-        {/*<SectionMyUPIId />
-        <SectionRecentTransaction />
+      <FlatList
+        ListHeaderComponent={
+          <>
+            <TopBar />
+            <HeaderAnimation />
+            <SectionQuickAction />
+            <SectionMyUPIId />
+          </>
+        }
+        /*
+        
         <SectionBusinesses />
-        <SectionInviteFriend /> */}
-      </ScrollView>
+         */
+        ListFooterComponent={
+          <>
+            <SectionRecentTransaction />
+            <SectionInviteFriend />
+          </>
+        }
+      />
     </SafeAreaView>
   );
 }
