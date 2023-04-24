@@ -14,24 +14,27 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="ScreenHome" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-/*
-<Stack.Navigator 
-screenOptions={{
-          headerShown: false,
-        }}>
+        screenOptions={
+          {
+            // headerShown: false,
+          }
+        }>
         <Stack.Screen
           name="ScreenEnterMobileNumber"
           component={EnterMobileNumber}
         />
         <Stack.Screen name="ScreenSelectLanguage" component={SelectLanguage} />
         <Stack.Screen name="ScreenLoading" component={Loading} />
-</Stack.Navigator>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+/*
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="ScreenHome" component={HomeScreen} />
+      </Stack.Navigator>
 */

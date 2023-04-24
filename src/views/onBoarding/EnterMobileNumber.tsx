@@ -43,10 +43,7 @@ export default function EnterMobileNumber({navigation}) {
           keyboardType="numeric"
         />
 
-        <BigButton
-          onPress={() => savePrefAndNavigate()}
-          children={'Click Me'}
-        />
+        <BigButton onPress={() => savePrefAndNavigate()} title="lets go" />
       </View>
     </SafeAreaView>
   );
