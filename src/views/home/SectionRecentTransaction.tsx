@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   itemTitle: {
+    maxHeight: 20,
+    // these property are not working
     // numberOfLines: 2,
     // ellipsizeMode: 'tail',
     // adjustsFontSizeToFit: true,

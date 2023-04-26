@@ -1,12 +1,12 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
-const BigButton = props => {
+export const BigButton = ({title, ...props}) => {
   return (
     <TouchableOpacity onPress={props.onPress}>
       <View style={{...styles.button, ...props.style}}>
         <Text style={{...styles.buttonText, ...props.textStyling}}>
-          {props.children}
+          {title}
         </Text>
       </View>
     </TouchableOpacity>
