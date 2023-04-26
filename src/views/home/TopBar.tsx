@@ -11,8 +11,11 @@ export default function TopBar() {
         />
         <Text style={styles.searchText}>Search | Payment | Contacts</Text>
       </View>
-      <View style={styles.accountIcon}>
-        <Text style={styles.accountText}>A</Text>
+      <View>
+        <Image
+          source={require('../../../assets/ic_avatar.png')}
+          style={styles.accountIcon}
+        />
       </View>
     </View>
   );

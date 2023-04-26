@@ -6,29 +6,47 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import TopAppBar from './TopAppBar';
 import BigButton from '../../component/BigButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useUser} from '../../context/userContext';
+import {KEY_LANGUAGE} from '../../utils/AppConstant';
 
 export default function EnterMobileNumber({navigation}) {
-  const [number, onChangeNumber] = React.useState('');
+  const [mobileNumber, onChangeMobileNumber] = useState('');
+  const {setIsLogIn, appLang} = useUser();
 
-  function savePrefAndNavigate() {
-    const storeData = async value => {
-      try {
-        await AsyncStorage.setItem('@onBoardingStatus_Key', 'false');
-      } catch (e) {
-        // saving error
-      }
-    };
-    navigation.navigate('ScreenLoading');
-  }
+  // const getData = async () => {
+  //   try {
+  //     const value = await AsyncStorage.getItem(KEY_LANGUAGE);
+  //     if (value !== null) {
+  //       // value previously stored
+  //       setSelectedLang(value);
+  //     }
+  //   } catch (e) {
+  //     // error reading value
+  //   }
+  // };
 
+  // function savePrefAndNavigate(mobileNumber: string) {
+  // const storeData = async value => {
+  //   try {
+  //     await AsyncStorage.setItem('@onBoardingStatus_Key', 'false');
+  //   } catch (e) {
+  //     // saving error
+  //   }
+  // };
+  //   console.log('enter mobile number ' + mobileNumber);
+  // }
+
+  console.log('enter mobile num ' + appLang);
+  console.log('enter mobile num ' + mobileNumber);
+  5;
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <TopAppBar navigation={navigation} />
+        <TopAppBar appLang={appLang} navigation={navigation} />
         <Image
           source={require('../../../assets/img_india.png')}
           style={styles.appLogo}
@@ -37,14 +55,16 @@ export default function EnterMobileNumber({navigation}) {
         <Text style={styles.subHeader}>Enter Your Mobile Number</Text>
         <TextInput
           style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
+          onChangeText={onChangeMobileNumber}
+          value={mobileNumber}
           placeholder="Mobile Number"
           keyboardType="numeric"
         />
 
         <BigButton
-          onPress={() => savePrefAndNavigate()}
+          onPress={() =>
+            navigation.navigate('ScreenLoading', {mobileNum: mobileNumber})
+          }
           children={'Click Me'}
         />
       </View>

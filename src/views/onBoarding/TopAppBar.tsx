@@ -3,17 +3,19 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function TopAppBar({navigation}) {
+export default function TopAppBar({navigation, appLang}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('ScreenSelectLanguage')}>
+        onPress={() =>
+          navigation.navigate('ScreenSelectLanguage', {appLang: appLang})
+        }>
         <View style={styles.box}>
           <Image
             source={require('../../../assets/ic_language.png')}
             style={styles.dropDownLogo}
           />
-          <Text>English</Text>
+          <Text>{appLang}</Text>
           <Image
             source={require('../../../assets/drop_down.png')}
             style={styles.dropDownLogo}

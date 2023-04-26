@@ -9,7 +9,9 @@ export default function SectionMyUPIId() {
           source={require('../../../assets/ic_copy.png')}
           style={styles.upiLogo}
         />
-        <Text style={styles.upiText}>ashi3377@SBI</Text>
+        <Text selectable={true} style={styles.upiText}>
+          ashi3377@SBI
+        </Text>
       </TouchableOpacity>
     </View>
   );
