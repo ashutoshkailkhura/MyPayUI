@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import UserProvider from './src/context/userContext';
-import MainNavigator from './src/MainNavigator';
+import MainNavigator from './src/navigation/MainNavigator';
 
 export default function App() {
   return (

@@ -1,7 +1,24 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {PropsWithChildren} from 'react';
+import {AppScreenMain} from '../../navigation/AppScreen';
 
-export default function TopBar() {
+type AvatarProps = PropsWithChildren<{
+  avatarUrl: ImageSourcePropType;
+}>;
+
+const AccountImage = ({avatarUrl}: AvatarProps): JSX.Element => {
+  return <Image source={avatarUrl} style={styles.accountIcon} />;
+};
+
+export default function TopBar({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
@@ -12,10 +29,12 @@ export default function TopBar() {
         <Text style={styles.searchText}>Search | Payment | Contacts</Text>
       </View>
       <View>
-        <Image
-          source={require('../../../assets/ic_avatar.png')}
-          style={styles.accountIcon}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate(AppScreenMain.AccountScreen);
+          }}>
+          <AccountImage avatarUrl={require('../../../assets/ic_avatar.png')} />
+        </TouchableOpacity>
       </View>
     </View>
   );

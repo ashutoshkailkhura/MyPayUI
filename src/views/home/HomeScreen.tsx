@@ -1,6 +1,5 @@
 import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import axios from 'axios';
 import TopBar from './TopBar';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import HeaderAnimation from './HeaderAnimation';
@@ -9,42 +8,27 @@ import SectionMyUPIId from './SectionMyUPIId';
 import SectionBusinesses from './SectionBusinesses';
 import SectionInviteFriend from './SectionInviteFriend';
 import SectionRecentTransaction from './SectionRecentTransaction';
+import SectionPersonal from './SectionPersonal';
 
 export default function HomeScreen({navigation}) {
   const [userData, setUserData] = useState([]);
-
-  axios
-    .get('https://jsonplaceholder.typicode.com/users')
-    .then(function (response) {
-      // handle success
-      setUserData(response.data);
-    })
-    .catch(function (_error) {
-      // handle error
-      setUserData([]);
-    })
-    .finally(function () {
-      // always executed
-    });
 
   return (
     <SafeAreaView>
       <FlatList
         ListHeaderComponent={
           <>
-            <TopBar />
+            <TopBar navigation={navigation} />
             <HeaderAnimation />
             <SectionQuickAction />
             <SectionMyUPIId />
+            <SectionBusinesses />
           </>
         }
-        /*
-        
-        <SectionBusinesses />
-         */
         ListFooterComponent={
           <>
-            <SectionRecentTransaction />
+            <SectionRecentTransaction navigation={navigation} />
+            <SectionPersonal navigation={navigation} />
             <SectionInviteFriend />
           </>
         }

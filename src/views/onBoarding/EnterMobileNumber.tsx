@@ -9,13 +9,12 @@ import {
 import React, {useState} from 'react';
 import TopAppBar from './TopAppBar';
 import BigButton from '../../component/BigButton';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useUser} from '../../context/userContext';
-import {KEY_LANGUAGE} from '../../utils/AppConstant';
+import {AppScreenOnBoarding} from '../../navigation/AppScreen';
 
 export default function EnterMobileNumber({navigation}) {
   const [mobileNumber, onChangeMobileNumber] = useState('');
-  const {setIsLogIn, appLang} = useUser();
+  const {appLang} = useUser();
 
   // const getData = async () => {
   //   try {
@@ -40,9 +39,6 @@ export default function EnterMobileNumber({navigation}) {
   //   console.log('enter mobile number ' + mobileNumber);
   // }
 
-  console.log('enter mobile num ' + appLang);
-  console.log('enter mobile num ' + mobileNumber);
-  5;
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -64,9 +60,10 @@ export default function EnterMobileNumber({navigation}) {
         <BigButton
           title={'Lets Go'}
           onPress={() =>
-            navigation.navigate('ScreenLoading', {mobileNum: mobileNumber})
+            navigation.navigate(AppScreenOnBoarding.OnBoardingLoading, {
+              mobileNum: mobileNumber,
+            })
           }
-          children={'Click Me'}
         />
       </View>
     </SafeAreaView>
@@ -80,27 +77,25 @@ const styles = StyleSheet.create({
   appLogo: {
     width: 100,
     height: 50,
-    marginVertical: 18,
+    marginVertical: 22,
   },
   header: {
     fontSize: 22,
-    fontWeight: 700,
-    marginVertical: 4,
+    marginVertical: 12,
+    fontWeight: '700',
   },
   subHeader: {
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: '400',
     marginVertical: 2,
   },
   input: {
     fontSize: 22,
     height: 55,
-    marginVertical: 22,
+    marginVertical: 24,
     borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
     padding: 10,
-  },
-  footer: {
-    flex: 1,
-    justifyContent: 'flex-end',
   },
 });

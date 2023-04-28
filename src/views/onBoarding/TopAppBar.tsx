@@ -1,14 +1,15 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {AppScreenOnBoarding} from '../../navigation/AppScreen';
 
 export default function TopAppBar({navigation, appLang}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ScreenSelectLanguage', {appLang: appLang})
+          navigation.navigate(AppScreenOnBoarding.SelectAppLanguage, {
+            appLang: appLang,
+          })
         }>
         <View style={styles.box}>
           <Image

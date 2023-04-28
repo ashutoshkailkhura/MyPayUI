@@ -4,8 +4,8 @@ import {useUser} from '../../context/userContext';
 import Lottie from 'lottie-react-native';
 
 export default function Loading({route, navigation}) {
-  const {mobileNum} = route.params;
   const [loadingDone, setLoadingDone] = useState(false);
+  const {mobileNum} = route.params;
 
   setTimeout(() => {
     setLoadingDone(true);
@@ -13,15 +13,20 @@ export default function Loading({route, navigation}) {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.loadingStyle}>checking {mobileNum}</Text>
       {loadingDone ? <LoadingDoneAnimation /> : <LoadingAnimation />}
-      <Text style={styles.loadingStyle}>Loading...{mobileNum}</Text>
     </View>
   );
 }
 
 const LoadingAnimation = () => {
   return (
-    <Lottie source={require('../../../assets/loading.json')} autoPlay loop />
+    <Lottie
+      style={styles.loadingAnimation}
+      source={require('../../../assets/loading.json')}
+      autoPlay
+      loop
+    />
   );
 };
 
@@ -30,6 +35,7 @@ const LoadingDoneAnimation = () => {
 
   return (
     <Lottie
+      style={styles.loadingAnimation}
       source={require('../../../assets/done.json')}
       autoPlay={true}
       loop={false}
@@ -49,5 +55,8 @@ const styles = StyleSheet.create({
   },
   loadingStyle: {
     fontSize: 32,
+  },
+  loadingAnimation: {
+    height: 120,
   },
 });

@@ -1,8 +1,9 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import axios from 'axios';
+import {AppScreenMain} from '../../navigation/AppScreen';
 
-export default function SectionRecentTransaction() {
+export default function SectionRecentTransaction({navigation}) {
   const [userData, setUserData] = useState([]);
 
   axios
@@ -28,12 +29,20 @@ export default function SectionRecentTransaction() {
           <Text style={styles.noDataText}>No Data</Text>
         )}
         renderItem={({item}) => (
-          <View style={styles.item}>
-            <View style={styles.itemImg}>
-              <Text style={styles.userIni}>{item.name.charAt(0)}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(AppScreenMain.RecentTransactionDetail, {
+                id: item.id,
+                name: item.name,
+              });
+            }}>
+            <View style={styles.item}>
+              <View style={styles.itemImg}>
+                <Text style={styles.userIni}>{item.name.charAt(0)}</Text>
+              </View>
+              <Text style={styles.itemTitle}>{item.name}</Text>
             </View>
-            <Text style={styles.itemTitle}>{item.name}</Text>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
