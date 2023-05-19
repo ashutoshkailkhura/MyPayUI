@@ -51,14 +51,14 @@ export default function EnterMobileNumber({navigation}) {
         <Text style={styles.subHeader}>Enter Your Mobile Number</Text>
         <TextInput
           style={styles.input}
-          onChangeText={onChangeMobileNumber}
+          onChangeText={number => onChangeMobileNumber(number)}
           value={mobileNumber}
           placeholder="Mobile Number"
           keyboardType="numeric"
         />
 
         <BigButton
-          title={'Lets Go'}
+          title={"Let's GO"}
           onPress={() =>
             navigation.navigate(AppScreenOnBoarding.OnBoardingLoading, {
               mobileNum: mobileNumber,
