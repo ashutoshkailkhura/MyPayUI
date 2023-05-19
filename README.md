@@ -7,3 +7,4 @@
 - [ ] Day-Night Theme
 - [ ] Load more on scrolling
 - [ ] DeepLinking
+- [ ] Contact,Bio Security Permission
