@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {PropsWithChildren} from 'react';
 import {AppScreenMain} from '../../navigation/AppScreen';
+import Animated from 'react-native-reanimated';
 
 type AvatarProps = PropsWithChildren<{
   avatarUrl: ImageSourcePropType;
@@ -29,12 +30,16 @@ export default function TopBar({navigation}) {
         <Text style={styles.searchText}>Search | Payment | Contacts</Text>
       </View>
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate(AppScreenMain.AccountScreen);
-          }}>
-          <AccountImage avatarUrl={require('../../../assets/ic_avatar.png')} />
-        </TouchableOpacity>
+        <Animated.View sharedTransitionTag="sharedTag">
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(AppScreenMain.AccountScreen);
+            }}>
+            <AccountImage
+              avatarUrl={require('../../../assets/ic_avatar.png')}
+            />
+          </TouchableOpacity>
+        </Animated.View>
       </View>
     </View>
   );

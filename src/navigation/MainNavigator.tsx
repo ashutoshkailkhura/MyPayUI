@@ -9,6 +9,7 @@ import {AppScreenMain, AppScreenOnBoarding} from './AppScreen';
 import UserAccount from '../views/myAccount/UserAccount';
 import RecentTransactionDetail from '../views/home/recentDetail/RecentTransactionDetail';
 import MyTransactionHistory from '../views/home/transactionHistory/MyTransactionHistory';
+import ContactList from '../views/contactList/ContactList';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,13 @@ const HomeNavigator = () => {
         component={MyTransactionHistory}
         options={{
           title: 'Transaction History',
+        }}
+      />
+      <Stack.Screen
+        name={AppScreenMain.ContactList}
+        component={ContactList}
+        options={{
+          title: 'My Contacts',
         }}
       />
     </Stack.Navigator>

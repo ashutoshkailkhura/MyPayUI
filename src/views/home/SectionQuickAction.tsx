@@ -1,7 +1,15 @@
-import {FlatList, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
+import {AppScreenMain} from '../../navigation/AppScreen';
 
-export default function SectionQuickAction() {
+export default function SectionQuickAction({navigation}) {
   const quickActionItems = [
     {
       id: 1,
@@ -51,10 +59,15 @@ export default function SectionQuickAction() {
         style={styles.container}
         data={quickActionItems}
         renderItem={({item}) => (
-          <View style={styles.item}>
-            <View style={styles.itemImg} />
-            <Text style={styles.itemTitle}>{item.title}</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(AppScreenMain.ContactList);
+            }}>
+            <View style={styles.item}>
+              <View style={styles.itemImg} />
+              <Text style={styles.itemTitle}>{item.title}</Text>
+            </View>
+          </TouchableOpacity>
         )}
         keyExtractor={item => item.id}
       />

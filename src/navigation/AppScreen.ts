@@ -10,4 +10,5 @@ export const AppScreenMain = {
   AccountScreen: 'AccountScreen',
   RecentTransactionDetail: 'RecentTransactionDetail',
   MyTransactionHistory: 'MyTransactionHistory',
+  ContactList: 'ContactList',
 };
